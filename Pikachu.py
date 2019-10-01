@@ -11,7 +11,7 @@ class Pikachu():
         self.t = turtle.Turtle()
         t = self.t
         t.pensize(3)
-        t.speed(5)
+        t.speed(0)
         t.ondrag(setPosition)
 
     def no_trace_goto(self, x, y):
