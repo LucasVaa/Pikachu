@@ -11,7 +11,7 @@ class Pikachu():
         self.t = turtle.Turtle()
         t = self.t
         t.pensize(3)
-        t.speed(0)
+        t.speed(5)
         t.ondrag(setPosition)
 
     def no_trace_goto(self, x, y):
@@ -219,6 +219,140 @@ class Pikachu():
         t.pensize(3)
         t.hideturtle()
 
+    def shadow_center(self, x, y):
+        self.no_trace_goto(x, y)
+        t = self.t
+        t.pencolor("#D5A076")
+        t.fillcolor("#D5A076")
+        t.begin_fill()
+        t.setheading(30)
+        t.circle(100, 30)
+        t.left(180)
+        t.end_fill()
+
+        t.begin_fill()
+        t.circle(-100, 30)
+        t.setheading(170)
+        t.circle(-120, 30)
+        t.setheading(90)
+        t.circle(-10, 90)
+        t.circle(-500, 5)
+        t.setheading(15)
+        t.circle(-200, 11)
+        t.circle(-3, 95)
+        t.end_fill()
+
+    def shadow_left(self, x, y):
+        self.no_trace_goto(x, y)
+        t = self.t
+        t.pencolor("#D5A076")
+        t.begin_fill()
+        t.fillcolor("#D5A076")
+        t.setheading(15)
+        t.circle(-100, 20)
+        t.circle(-10, 120)
+        t.circle(-100, 14)
+        t.pencolor("black")
+        t.setheading(73)
+        t.circle(20, 90)
+        t.forward(13)
+        t.end_fill()
+        t.hideturtle()
+
+    def shadow_right(self, x, y):
+        self.no_trace_goto(x, y)
+        t = self.t
+        t.pencolor("#D5A076")
+        t.begin_fill()
+        t.fillcolor("#D5A076")
+        t.setheading(110)
+        t.circle(100, 20)
+        t.circle(-25, 90)
+        t.right(20)
+        t.circle(-300, 5)
+        t.circle(300, 5)
+        t.left(10)
+        t.circle(300, 9)
+        t.pencolor("black")
+        t.setheading(238)
+        t.circle(-150, 37)
+        t.setheading(273)
+        t.circle(-500, 5)
+        t.end_fill()
+
+    def shadow_bottom(self, x, y):
+        self.no_trace_goto(x, y)
+        t = self.t
+
+        t.fillcolor("#D5A076")
+        t.begin_fill()
+        t.setheading(290)
+        t.circle(500, 7)
+        t.circle(-400, 4)
+        t.circle(20, 100)
+        t.circle(500, 4)
+        t.left(180)
+        t.circle(-500, 3)
+        t.setheading(350)
+        t.circle(300, 23)
+        t.circle(-300, 30)
+        t.circle(100, 50)
+        t.setheading(120)
+        t.circle(-120, 6)
+        t.left(180)
+        t.circle(120, 14)
+        t.circle(12, 120)
+        t.circle(500, 13)
+
+        t.pencolor("#D5A076")
+        t.setheading(160)
+        t.circle(20, 40)
+        t.circle(50, 40)
+        t.circle(200, 11)
+        t.setheading(205)
+        t.circle(-300, 40)
+        t.circle(500, 8)
+        t.circle(250, 5)
+        t.circle(100, 40)
+        t.circle(-100, 5)
+        t.circle(-5, 95)
+        t.circle(500, 8)
+        t.circle(17, 90)
+        t.end_fill()
+        t.hideturtle()
+
+    def shadow_left_ear(self, x, y):
+        self.no_trace_goto(x, y)
+        t = self.t
+        t.fillcolor("#D5A076")
+        t.begin_fill()
+        t.pencolor("#D5A076")
+        t.setheading(350)
+        t.circle(100, 26)
+
+        t.pencolor("black")
+        t.setheading(260)
+        t.forward(12)
+        t.setheading(175)
+        t.circle(-200, 16)
+        t.end_fill()
+
+    def shadow_right_ear(self, x ,y):
+        self.no_trace_goto(x, y)
+        t = self.t
+        t.fillcolor("#D5A076")
+        t.begin_fill()
+        t.pencolor("#D5A076")
+        t.setheading(189)
+        t.circle(-300, 13)
+
+        t.pencolor("black")
+        t.setheading(280)
+        t.circle(-300, 3.3)
+        t.setheading(10)
+        t.circle(300, 13)
+        t.end_fill()
+
     def body(self):
         t = self.t
         t.fillcolor("#FDD55B")
@@ -375,6 +509,7 @@ class Pikachu():
         t.setheading(20)
         t.circle(150, 40)
         t.circle(500, 9)
+
         t.setheading(45)
         t.forward(10)
         t.setheading(170)
@@ -397,10 +532,8 @@ class Pikachu():
         t.forward(10)
         t.setheading(205)
         t.circle(500, 10)
-
         t.end_fill()
 
-        # 眼睛
         self.left_eye(-140, 160)
         self.right_eye(20, 160)
         self.nose(-70, 160)
@@ -409,6 +542,13 @@ class Pikachu():
         self.right_cheek(80, 80)
         self.color_left_ear(-330, 275)
         self.color_right_ear(186, 265)
+        self.shadow_center(-50, -30)
+        self.shadow_left(-258, -75)
+        self.shadow_right(130, -100)
+        self.shadow_bottom(-314.1, -178.5)
+        self.shadow_left_ear(-255, 240)
+        self.shadow_right_ear(150, 248)
+
     def start(self):
         self.body()
 
